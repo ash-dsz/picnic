@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <style>
+ 
+</head>
+   <style>
     .loader {
       border: 16px solid #f3f3f3;
       border-top: 16px solid #3498db;
@@ -22,7 +24,6 @@
       100% { transform: rotate(360deg); }
     }
   </style>
-</head>
 <body>
   <div class="container">
   <center>
