@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Picnic Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-top: 16px solid #3498db;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      margin: auto;
+      display: none;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+ <?php
+// Connect to the database using mysqli_connect
+$conn = mysqli_connect("localhost", "u736864550_morningmasala", "Keshav@12345", "u736864550_morningmasala");
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Construct the SQL query to retrieve all records from the fake table
+$sql = "SELECT * FROM fake";
+
+// Execute the query using mysqli_query
+$result = mysqli_query($conn, $sql);
+
+// Create a Bootstrap table to display the records
+echo '<div class="table-responsive">';
+echo '<table class="table">';
+echo '<thead class="thead-light">';
+echo '<tr>';
+echo '<th scope="col">ID</th>';
+echo '<th scope="col">Name</th>';
+echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
+$i=1;
+// Loop through the query result and display each record in a table row
+while ($row = mysqli_fetch_assoc($result)) {
+  echo '<tr>';
+  echo '<td>' . $i . '</td>';
+  echo '<td>' . $row['name'] . '</td>';
+  echo '</tr>';
+  $i++;
+}
+
+echo '</tbody>';
+echo '</table>';
+echo '</div>';
+
+// Close the database connection using mysqli_close
+mysqli_close($conn);
+?>
+
+
+</body>
+</html>
